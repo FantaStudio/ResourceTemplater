@@ -1,0 +1,80 @@
+﻿<Window x:Class="ResourceTemplater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResourceTemplater"
+        xmlns:ui="clr-namespace:ResourceTemplater.UI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" Width="806" Height="520" ResizeMode="NoResize" Icon="/Resources/Images/logo.ico" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Header -->
+        <Grid x:Name="Header_Bar" Background="{DynamicResource DarkBlue}" MouseDown="Header_Bar_MouseDown">
+            <Label FontSize="24" Content="RESOURCE TEMPLATER" Foreground="{DynamicResource TextLight}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Leelawadee UI" FontStyle="Italic"/>
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button Name="Close_Button" Width="50" Click="Close_Button_Click">
+                    <Image Source="/Resources/Images/close.png" Margin="15"/>
+                </Button>
+                <Button x:Name="Minimize_Button" Width="50" Click="Minimize_Button_Click">
+                    <Image Source="/Resources/Images/minimize.png" Margin="13,10,13,0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!-- Content -->
+        <Grid Grid.Row="1" Background="{DynamicResource DarkGray}">
+            <Grid Margin="3,0,3,3" Background="{DynamicResource Gray}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220*"/>
+                    <ColumnDefinition Width="288*"/>
+                    <ColumnDefinition Width="247*" />
+                </Grid.ColumnDefinitions>
+                <!-- Main -->
+                <StackPanel>
+                    <Label Content="Основа" Margin="0,15,0,0" HorizontalContentAlignment="Center"/>
+                    <StackPanel Margin="50,15,0,0" Orientation="Horizontal">
+                        <ui:CellCheckbox x:Name="Client_Checkbox" Width="64" Height="64" />
+                        <Label Content="Клиент" Margin="10,0,0,0" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="50,35,0,0" Orientation="Horizontal">
+                        <ui:CellCheckbox x:Name="Server_Checkbox" Width="64" Height="64" />
+                        <Label Content="Сервер" Margin="10,0,0,0" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Margin="50,35,0,0" Orientation="Horizontal">
+                        <ui:CellCheckbox x:Name="Shared_Checkbox" Width="64" Height="64" />
+                        <Label Content="Shared" Margin="10,0,0,0" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <CheckBox x:Name="Full_Name_Checkbox" Margin="50,35,0,0" Content="Полное название" />
+                    <CheckBox x:Name="Cache_Checkbox" Margin="50,10,0,0" Content="Кеширование" />
+                    <CheckBox x:Name="OOP_Checkbox" Margin="50,10,0,0" Content="ООП" />
+                </StackPanel>
+                <!-- Template -->
+                <StackPanel Grid.Column="1">
+                    <Label Content="Шаблон" Margin="0,15,0,0" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="Load_Template_Button" Click="Load_Template_Button_Click" Content="Загрузить" Margin="0,15,0,0" Width="200" Height="40"/>
+                    <Button x:Name="Save_Template_Button" Click="Save_Template_Button_Click" Content="Сохранить" Margin="0,10,0,0" Width="200" Height="40"/>
+                    <Label Content="Автор" Margin="0,10,0,0" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="Author_Box" Height="35" TextAlignment="Center" FontSize="18" Template="{DynamicResource RTTextBox}" />
+                    <Label Content="Версия" Margin="0,10,0,0" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="Version_Box" Height="35" TextAlignment="Center" FontSize="18" Template="{DynamicResource RTTextBox}"/>
+                    <Label Content="Имя ресурса" Margin="0,10,0,0" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="Resource_Name_Box" Height="35" TextAlignment="Center" FontSize="18" Template="{DynamicResource RTTextBox}"/>
+                    <Button x:Name="Create_Resource_Button" Click="Create_Resource_Button_Click" Content="Создать" Margin="0,20,0,0" Height="40" FontSize="20"/>
+                </StackPanel>
+                <!-- Additional -->
+                <StackPanel Grid.Column="2">
+                    <Label Content="Доп.Файлы" Margin="0,15,0,0" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="Choose_Files_Button" Click="Choose_Files_Button_Click" Content="Выбрать" Margin="0,15,0,0" Width="200" Height="40"/>
+                    <ListBox x:Name="File_List_Box" Margin="20,15,20,0" Width="200" Height="150"/>
+                    <Button x:Name="Clear_Files_Button" Click="Clear_Files_Button_Click" Content="Очистить" Margin="0,15,0,0" Width="150" Height="30"/>
+                    <CheckBox x:Name="Download_Checkbox" Content="Скачивание" Margin="0,20,0,0" HorizontalAlignment="Center" />
+                    <Label Content="Мин.Версия МТА" Margin="0,15,0,0" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="Minimal_Version_Box" Width="150" Height="35" TextAlignment="Center" FontSize="16" Template="{DynamicResource RTTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
