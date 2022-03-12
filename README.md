@@ -7,3 +7,5 @@ Resource Templater - Программа для создания шаблонов
 Программа находится по пути ResourceTemplater/ResourceTemplater/bin/Debug/
 
 ![image](https://user-images.githubusercontent.com/33997732/135401115-a8d30935-4a03-4a2e-97c8-f767b11765ee.png)
+
+![https://img.shields.io/badge/5000-downloads-green](https://img.shields.io/badge/5000-downloads-green)
